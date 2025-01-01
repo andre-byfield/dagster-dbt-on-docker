@@ -3,7 +3,7 @@ jaffle_shop:
   outputs:
     dev:
       type: postgres
-      host: localhost
+      host: host.docker.internal
       user: dbt_user
       password: wouldnt_you_like_to_know?
       port: 5432

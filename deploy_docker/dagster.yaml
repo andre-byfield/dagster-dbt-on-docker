@@ -21,50 +21,24 @@ run_launcher:
       - DAGSTER_POSTGRES_USER
       - DAGSTER_POSTGRES_PASSWORD
       - DAGSTER_POSTGRES_DB
+      - DAGSTER_POSTGRES_HOST
     network: docker_example_network
     container_kwargs:
       volumes: # Make docker client accessible to any launched containers as well
         - /var/run/docker.sock:/var/run/docker.sock
         - /tmp/io_manager_storage:/tmp/io_manager_storage
+        - /Users/andrebyfield/Source/GitRepos/dagster-dbt-on-docker/deploy_docker/definitions.py:/opt/dagster/app/definitions.py
+        - /Users/andrebyfield/Source/GitRepos/dagster-dbt-on-docker/deploy_docker/jaffle_shop:/opt/dagster/app/jaffle_shop
 
-run_storage:
-  module: dagster_postgres.run_storage
-  class: PostgresRunStorage
-  config:
+storage:
+  postgres:
     postgres_db:
-      hostname: docker_example_postgresql
       username:
         env: DAGSTER_POSTGRES_USER
       password:
         env: DAGSTER_POSTGRES_PASSWORD
       db_name:
         env: DAGSTER_POSTGRES_DB
-      port: 5432
-
-schedule_storage:
-  module: dagster_postgres.schedule_storage
-  class: PostgresScheduleStorage
-  config:
-    postgres_db:
-      hostname: docker_example_postgresql
-      username:
-        env: DAGSTER_POSTGRES_USER
-      password:
-        env: DAGSTER_POSTGRES_PASSWORD
-      db_name:
-        env: DAGSTER_POSTGRES_DB
-      port: 5432
-
-event_log_storage:
-  module: dagster_postgres.event_log
-  class: PostgresEventLogStorage
-  config:
-    postgres_db:
-      hostname: docker_example_postgresql
-      username:
-        env: DAGSTER_POSTGRES_USER
-      password:
-        env: DAGSTER_POSTGRES_PASSWORD
-      db_name:
-        env: DAGSTER_POSTGRES_DB
+      hostname:
+        env: DAGSTER_POSTGRES_HOST
       port: 5432

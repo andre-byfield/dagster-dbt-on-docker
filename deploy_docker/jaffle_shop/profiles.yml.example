@@ -1,0 +1,12 @@
+jaffle_shop:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: localhost
+      user: dbt_user
+      password: wouldnt_you_like_to_know?
+      port: 5432
+      dbname: data_warehouse
+      schema: dbt_andre
+      threads: 4

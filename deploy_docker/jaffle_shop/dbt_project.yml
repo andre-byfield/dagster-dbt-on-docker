@@ -5,6 +5,9 @@ version: '0.1'
 
 profile: 'jaffle_shop'
 
+flags:
+  send_anonymous_usage_stats: False
+
 model-paths: ["models"]
 seed-paths: ["seeds"]
 test-paths: ["tests"]

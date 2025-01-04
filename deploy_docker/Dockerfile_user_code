@@ -14,7 +14,8 @@ RUN pip install \
 
 WORKDIR /opt/dagster/app
 
-# COPY definitions.py /opt/dagster/app
+COPY definitions.py /opt/dagster/app/definitions.py
+COPY jaffle_shop/ /opt/dagster/app/jaffle_shop/
 
 # Run dagster gRPC server on port 4000
 

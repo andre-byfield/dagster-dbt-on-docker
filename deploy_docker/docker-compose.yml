@@ -27,9 +27,6 @@ services:
       DAGSTER_DBT_PARSE_PROJECT_ON_LOAD: 1
     networks:
       - docker_example_network
-    volumes:
-      - ./definitions.py:/opt/dagster/app/definitions.py
-      - ./jaffle_shop:/opt/dagster/app/jaffle_shop
 
   # This service runs dagster-webserver, which loads your user code from the user code container.
   # Since our instance uses the QueuedRunCoordinator, any runs submitted from the webserver will be put on

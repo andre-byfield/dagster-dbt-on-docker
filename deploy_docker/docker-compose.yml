@@ -17,7 +17,7 @@ services:
       dockerfile: ./Dockerfile_user_code
     container_name: docker_example_user_code
     image: docker_example_user_code_image
-    restart: always
+    restart: on-failure
     environment:
       DAGSTER_POSTGRES_USER: ${DAGSTER_POSTGRES_USER}
       DAGSTER_POSTGRES_PASSWORD: ${DAGSTER_POSTGRES_PASSWORD}

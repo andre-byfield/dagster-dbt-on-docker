@@ -3,6 +3,6 @@ Working through the "How to orchestrate dbt with Dagster in multi-containers on 
 
 Contains code from the following repos:
 
-https://github.com/dagster-io/dagster.git
+https://github.com/dagster-io/dagster.git <br />
 https://github.com/dbt-labs/jaffle-shop-classic.git
 
